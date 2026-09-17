@@ -15,6 +15,7 @@ from Bio.PDB.NeighborSearch import NeighborSearch
 from Bio.PDB.PDBParser import PDBParser
 import argparse
 import numpy as np
+import sys
 
 
 PDBparser = PDBParser(PERMISSIVE=1)
@@ -55,6 +56,10 @@ CA_residues = {}
 for at in st.get_atoms():
     if at.id == 'CA':
         CA_atoms.append(at)
+
+if CA_atoms == []:
+    print('No CA atoms were found in this molecule')
+    sys.exit(1)
 
 for atom in CA_atoms:
     residue = atom.get_parent()

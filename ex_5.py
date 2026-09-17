@@ -63,7 +63,13 @@ for at in st.get_atoms():
 
     elif at.id == 'N':
         N_atoms.append(at)
+if C_atoms == []:
+    print('No C atoms were found in this molecule')
+    sys.exit(1)
 
+if N_atoms == []:
+    print('No N atoms were found in this molecule')
+    sys.exit(1)
 
 # Preparing search
 nbsearch_n = NeighborSearch(N_atoms)

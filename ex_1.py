@@ -10,6 +10,7 @@ from Bio.PDB.NeighborSearch import NeighborSearch
 from Bio.PDB.PDBParser import PDBParser
 import argparse
 import numpy as np
+import sys
 
 
 PDBparser = PDBParser(PERMISSIVE=1)
@@ -52,6 +53,11 @@ for at in st.get_atoms():
         CA_atoms.append(at)
 
 # Preparing search
+
+if CA_atoms == []:
+    print('No CA atoms were found in this molecule')
+    sys.exit(1)
+
 nbsearch = NeighborSearch(CA_atoms)
 
 print("Performing Neighbour search, with max distance set to:", DISTANCE, '...')
