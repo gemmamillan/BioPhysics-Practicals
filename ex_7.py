@@ -26,7 +26,6 @@ parser.add_argument('residue2',
 # Read command line into args
 args = parser.parse_args()
 
-
 print('User CLI:')
 for k, v in vars(args).items():
     print ('{:10}:'.format(k), v)
@@ -50,6 +49,8 @@ for res in st.get_residues():
 
     elif res.get_resname() == residue2:
         residues_2.append(res)
+
+    
 
 # #Selection of Residue 10 of Chain A
 # res10 = st[0]["A"][10]

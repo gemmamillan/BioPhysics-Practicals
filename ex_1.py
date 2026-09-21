@@ -37,7 +37,7 @@ for k, v in vars(args).items():
 
 #print the variables once assigned
 PDBFILE = args.PDB_file_name
-DISTANCE = int(args.distance)
+DISTANCE = float(args.distance)
 
 
 # load structure from PDB file
@@ -74,6 +74,10 @@ for at1, at2 in nbsearch.search_all(DISTANCE):
 
     residue_pairs[residues] = (at1.get_serial_number(),at2.get_serial_number(),round(float(distance),2))
     ncontact += 1
+
+if residue_pairs == {}:
+    print('No CA atoms were closer than the set distance:', DISTANCE)
+    sys.exit(1)
 
 print(residue_pairs)
 print('Output -> pair of residues whose carbon atoms are closer than the set distance: { (residue1 , residue2) : (CA atom serial number residue1, CA atom serial number residue2, distance between CA atoms - Å) }')
