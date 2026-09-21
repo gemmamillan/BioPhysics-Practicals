@@ -70,5 +70,5 @@ for r1 in residues_1:
                 result[pair] = round(float(dist), 2)
 
 print(result)
-print('Output -> pair of polar atoms that form a hydrogen bond: { (atom1 , atom2) : distance between atoms - Å }')
+print('Output -> distance between all of the atoms of 2 given residues { (residue1+id: atom+id , residue2+id:atom+id) : distance between atoms - Å }')
 
